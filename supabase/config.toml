@@ -1,0 +1,22 @@
+# Clip Engine — dedicated Supabase project only.
+# project_id is a local label; it is not a cloud project reference.
+
+project_id = "clip-engine"
+
+[api]
+enabled = true
+
+[db]
+major_version = 15
+
+# Scheduled functions are the default hourly trigger.
+# verify_jwt is off so pg_cron / the scheduler can invoke them; scout code
+# enforces CRON_SECRET when that env var is set. Set CRON_SECRET in production.
+
+[functions.scout-fetch]
+verify_jwt = false
+schedule = "0 * * * *"
+
+[functions.scout-briefs]
+verify_jwt = false
+schedule = "15 * * * *"

@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "lib": ["deno.window", "deno.ns"]
+  },
+  "tasks": {
+    "check": "deno check supabase/functions/_shared/*.ts supabase/functions/scout-fetch/index.ts supabase/functions/scout-briefs/index.ts scripts/print-campaigns.ts",
+    "test": "deno test --allow-env supabase/functions/_shared/",
+    "print-campaigns": "deno run --allow-net --allow-env --env-file=.env scripts/print-campaigns.ts"
+  }
+}
